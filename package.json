@@ -1,11 +1,12 @@
 {
   "name": "pluggy-node-demo",
   "dependencies": {
-    "node-pg-migrate": "^5.9.0",
+    "mongodb": "^3.6.6",
     "pg": "^8.6.0",
     "pluggy-sdk": "^0.7.0"
   },
   "devDependencies": {
+    "@types/mongodb": "^3.6.12",
     "@vercel/node": "^1.10.0"
   }
 }
