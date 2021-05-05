@@ -2,23 +2,23 @@ import { VercelRequest, VercelResponse } from '@vercel/node'
 import { getItems } from '../lib/items'
 
 export default async (req: VercelRequest, res: VercelResponse) => {
-  let { from, skip, size } = req.query
+  const { from, skip, size } = req.query
 
   if (!from) {
-    res.status(400).json({ message: 'from parameter missing in query'})
+    res.status(400).json({ message: 'from parameter missing in query' })
     return
   }
 
   if (typeof from !== 'string') {
-    res.status(400).json({ message: 'from parameter should be a string'})
+    res.status(400).json({ message: 'from parameter should be a string' })
     return
   }
 
-  if(from.length !== 24) {
-      res.status(400).json({ message: 'from should be a 24-length timestamp'})
-      return
+  if (from.length !== 24) {
+    res.status(400).json({ message: 'from should be a 24-length timestamp' })
+    return
   }
-  
+
   const nSkip = parseInt(skip as string)
   if (skip && isNaN(nSkip)) {
     res.status(400).json({ message: 'skip should be an integer number' })
