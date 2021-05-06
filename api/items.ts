@@ -3,6 +3,14 @@ import { getItems } from '../lib/items'
 
 export default async (req: VercelRequest, res: VercelResponse) => {
   const { from, skip, size } = req.query
+  const { authorization } = req.headers
+  const { SERVER_AUTH } = process.env
+
+  // If Authorization is required validate that the token is sent in the header
+  if (SERVER_AUTH && (!authorization || !authorization.includes(SERVER_AUTH))) {
+    res.status(401).json({ message: 'Unauthorized' })
+    return
+  }
 
   if (!from) {
     res.status(400).json({ message: 'from parameter missing in query' })
