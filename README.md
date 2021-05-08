@@ -20,7 +20,7 @@ vercel dev
 Example requests:
 
 ```bash
-curl 'http://localhost:3000/api/items?from=2020-03-17T15:58:13.070Z&size=5'
-curl 'http://localhost:3000/api/items?from=2020-01-01T00:01:00.000Z&skip=100'
-curl 'http://localhost:3000/api/items?from=2020-01-01T00:01:00.000Z&size=10&skip=5'
+curl -H "Authorization: my-secured-token" 'http://localhost:3000/api/items?from=2020-03-17T15:58:13.070Z&size=5'
+curl -H "Authorization: my-secured-token" 'http://localhost:3000/api/items?from=2020-01-01T00:01:00.000Z&skip=100'
+curl -H "Authorization: my-secured-token" 'http://localhost:3000/api/items?from=2020-01-01T00:01:00.000Z&size=10&skip=5'
 ```
