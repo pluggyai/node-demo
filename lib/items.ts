@@ -8,15 +8,16 @@ const client = new MongoClient(MONGO_URI, {
   useUnifiedTopology: true
 })
 
-export async function saveItem (item: Item) {
+export async function saveItem(item: Item) {
   await client.connect()
   const database = client.db(MONGO_DB_NAME)
   const itemsCollection = database.collection('items')
   await itemsCollection.insertOne(item)
   console.log('Successfully added item with ID:', item.id)
+  await client.close()
 }
 
-export async function getItems (fromDate: string, skip: number = 0, size: number = 20) {
+export async function getItems(fromDate: string, skip: number = 0, size: number = 20) {
   await client.connect()
   const database = client.db(MONGO_DB_NAME)
   const itemsCollection = database.collection('items')
@@ -27,6 +28,9 @@ export async function getItems (fromDate: string, skip: number = 0, size: number
     .skip(skip)
     .limit(size < 20 ? size : 20)
     .toArray()
+
+  await client.close()
+
   return {
     results: items,
     count
