@@ -1,5 +1,5 @@
 {
-  "name": "pluggy-node-demo",
+  "name": "pluggy-node-mongo-example",
   "dependencies": {
     "mongodb": "^3.6.6",
     "pg": "^8.6.0",

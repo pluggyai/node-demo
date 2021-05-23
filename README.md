@@ -1,4 +1,4 @@
-# node-demo
+# Pluggy Node Mongo Example
 
 This is an example [Vercel](https://vercel.com) application using [Pluggy Node.js SDK](https://github.com/pluggyai/pluggy-node) to save all created items in a MongoDB collection to make them available for querying.
 
